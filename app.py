@@ -11,6 +11,10 @@ os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
 
 #APIs
+@app.get("/")
+def Home():
+    print("Hellp")
+    return{"message":"Home and working..."}
 @app.post("/blogs")
 async def create_blog(request:Request):
     data = await request.json()
@@ -25,11 +29,11 @@ async def create_blog(request:Request):
     if topic:
         graph = graph_builder.setup_graph(usecase="topic")
         state = graph.invoke({"topic":topic})
-
+    # print(state)
     return {"data":state}
 
 
 
 if __name__=="__main__":
-    uvicorn.run("app:app",host="0.0.0.0",port=8000,reload=True)
+    uvicorn.run("app:app",reload=True)
 

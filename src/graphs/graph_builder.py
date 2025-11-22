@@ -29,3 +29,4 @@ class GraphBuilder:
     def setup_graph(self,usecase):
         if usecase=="topic":
             self.build_topic_graph()
+        return self.graph.compile()
