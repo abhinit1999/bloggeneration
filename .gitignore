@@ -10,3 +10,4 @@ wheels/
 .venv
 requirements.txt
 .env/
+.env
